@@ -22,6 +22,6 @@ BROKERS = ["BRK-001", "BRK-002", "BRK-011", "BRK-020"]
 
 producer = KafkaProducer(
     bootstrap_servers=BOOTSTRAP_SERVERS,
-    value_serializer=lambda v:json.dumps(v).encode("utf-8").encode("UTF-8")
+    value_serializer=lambda v:json.dumps(v).encode("utf-8")
 
 )
