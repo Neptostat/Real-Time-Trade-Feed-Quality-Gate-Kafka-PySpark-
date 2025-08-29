@@ -25,3 +25,8 @@ producer = KafkaProducer(
     value_serializer=lambda v:json.dumps(v).encode("utf-8")
 
 )
+
+# this is a test to confirm producer reached the broker
+future = producer.send(TOPIC, {"test": "hello"})
+result = future.get(timeout=10)  # blocks until ack or error
+print("Message sent to:", result.topic, result.partition, result.offset)
